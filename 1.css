@@ -1,0 +1,142 @@
+/* Ajustes generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Asegurarse de que todo el contenido esté dentro del viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: -webkit-linear-gradient(135deg, #A8DADC, #457B9D); /* Prefijo para Safari */
+    background: linear-gradient(135deg, #A8DADC, #457B9D); /* Degradado suave de celeste a azul */
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+}
+
+/* Contenedor de la tarjeta */
+.container {
+    position: relative;
+    text-align: center;
+    width: 90%; 
+    max-width: 350px;
+    padding: 20px;
+    background: #F1FAEE; /* Blanco roto */
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra gris suave */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Para evitar que elementos se salgan del contenedor */
+}
+
+/* Corazón */
+.corazon {
+    width: 100px;
+    height: 90px;
+    background-color: #E76F51; /* Coral suave */
+    position: relative;
+    transform: rotate(-45deg);
+    -webkit-animation: latir 1s infinite; /* Prefijo para Safari */
+    animation: latir 1s infinite;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.corazon::before,
+.corazon::after {
+    content: "";
+    width: 100px;
+    height: 90px;
+    background-color: #E76F51; /* Coral suave */
+    border-radius: 50%;
+    position: absolute;
+}
+
+.corazon::before {
+    top: -50px; /* Ajuste para que la parte superior se vea completa */
+    left: 0;
+}
+
+.corazon::after {
+    left: 50px;
+    top: 0;
+}
+
+/* Animación del corazón */
+@-webkit-keyframes latir {
+    0% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(-45deg); /* Latido más fuerte */
+    }
+    100% {
+        transform: scale(1) rotate(-45deg);
+    }
+}
+
+@keyframes latir {
+    0% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(-45deg);
+    }
+    100% {
+        transform: scale(1) rotate(-45deg);
+    }
+}
+
+/* Mensaje */
+.mensaje {
+    display: none;
+    font-size: 18px;
+    color: #1D3557; /* Texto gris oscuro */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #A8DADC; /* Verde menta suave */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container.active .mensaje {
+    display: block;
+    -webkit-animation: aparecer 0.5s ease-in-out; /* Prefijo para Safari */
+    animation: aparecer 0.5s ease-in-out;
+}
+
+/* Animación de aparición */
+@-webkit-keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mensaje p {
+    margin: 10px 0;
+}
+
+.firma {
+    font-size: 16px;
+    color: #457B9D; /* Azul oscuro */
+    margin-top: 20px;
+}
